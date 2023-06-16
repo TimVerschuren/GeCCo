@@ -10,7 +10,7 @@ GeCCo can be installed by first cloning this GitHub repository. Subsequently, go
 git clone https://github.com/TimVerschuren/GeCCo.git
 
 # Go into repository location
-cd GeCCo/
+cd .../GeCCo/
 
 # Install package with pip
 pip install .
@@ -60,4 +60,4 @@ In addition to a protein fasta file of the proteome of each species, the differe
 - KOG:
     - A KOG classification file (JGI) for each species. 'KOG' must be included in the file name
 
-
+<b>***It is important that all files start with the same abbreviated species name that is also used in the protein fasta file followed by an underscore (e.g., Species1_Genes.fasta). Additionally, the abbreviated species names may NOT contain an underscore (e.g., Species1_A_Genes.fasta). If this is the case in the protein fasta files, change the names accordingly. GeCCo uses this to determine which fasta file belongs to which gene classification files.*** </b>
