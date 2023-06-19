@@ -22,7 +22,7 @@ For more information see: https://github.com/TimVerschuren/GeCCo", formatter_cla
     if args.mode == 1:
         HeatGenerator(TfData(args.input).tf_reader(), args.output).generate()
     if args.mode == 2:
-        settings = input("Visualise Clans (0) or Families (1)? (0/1) :")
+        settings = int(input("Visualise Clans (0) or Families (1)? (0/1) :"))
         HeatGenerator(PepData(args.input, settings).pep_reader(), args.output).generate()
     if args.mode == 3:
         HeatGenerator(CazyData(args.input).cazy_reader(), args.output).generate()
