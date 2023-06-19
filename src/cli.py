@@ -13,7 +13,7 @@ For more information see: https://github.com/TimVerschuren/GeCCo", formatter_cla
     2: Peptidase Clans\n\
     3: CAZymes\n\
     4: KEGG\n\
-    5: KOG\n", required=True)
+    5: KOG\n\n", required=True)
 
     args = argParser.parse_args()
     if args.mode == 0:
