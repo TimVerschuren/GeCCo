@@ -31,7 +31,7 @@ options:
                         Input folder
   -o OUTPUT, --output OUTPUT
                         Output folder + File name
-  -m {0,1,2,3,4}, --mode {0,1,2,3,4,5}
+  -m {0,1,2,3,4,5}, --mode {0,1,2,3,4,5}
                         Analysis modes:
                             0: Custom File
                             1: Transcription Factors
