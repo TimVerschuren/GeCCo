@@ -31,13 +31,14 @@ options:
                         Input folder
   -o OUTPUT, --output OUTPUT
                         Output folder + File name
-  -m {0,1,2,3,4}, --mode {0,1,2,3,4}
+  -m {0,1,2,3,4}, --mode {0,1,2,3,4,5}
                         Analysis modes:
                             0: Custom File
                             1: Transcription Factors
-                            2: CAZymes
-                            3: KEGG
-                            4: KOG
+                            2: Peptidase Clans
+                            3: CAZymes
+                            4: KEGG
+                            5: KOG
 ```
 
 In addition to a protein fasta file of the proteome of each species, the different analysis modes all require different files to be present in the input folder. They are the following:
@@ -50,6 +51,10 @@ In addition to a protein fasta file of the proteome of each species, the differe
 - Transcription Factors:
     - An InterPro classification file (JGI) for each species. 'IPR' must be included in the file name
     - A .tsv file named 'TF_PFAM.tsv' containing the Pfam Accessions for the transcription factors of interest.
+
+- Peptidase Clans:
+    - An InterPro classification file (JGI) for each species. 'IPR' must be included in the file name
+    - A .tsv file named 'Pep_PFAM.tsv' containing the Pfam Accessions for the peptidase clans of interest.
 
 - CAZymes:
     - A CAZyme prediction results from [dbCAN3](https://bcb.unl.edu/dbCAN2/blast.php) for each species. 'CAZy' must be included in the file name
@@ -66,3 +71,5 @@ In addition to a protein fasta file of the proteome of each species, the differe
 - It is important that all files start with the same abbreviated species name that is also used in the protein fasta file followed by an underscore (e.g., Species1_Genes.fasta). Additionally, the abbreviated species names may ***NOT*** contain an underscore (e.g., Species1_A_Genes.fasta). If this is the case in the protein fasta files, change the names accordingly. GeCCo uses this to determine which fasta file belongs to which gene classification files.
 
 - When downloading protein fasta files from JGI's Mycocosm, the fasta headers will be formatted as: 'jgi|Species1|0000001|...'. GeCCo requires this fasta header format. If a different header is present, change it to something that looks like JGI's format (e.g., abc|Species1).
+
+- Examples of all file format types can be found under the 'Examples' folder.
