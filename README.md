@@ -21,7 +21,7 @@ pip install .
 GeCCo requires 3 inputs, the input folder, output folder and file name and the analysis mode.
 
 ```bash
-usage: gecco [-h] -i INPUT -o OUTPUT -m {0,1,2,3,4}
+usage: gecco [-h] -i INPUT -o OUTPUT -m {0,1,2,3,4,5}
 
 GeCCo - Gene Content Counter, For more information see: https://github.com/TimVerschuren/GeCCo
 
