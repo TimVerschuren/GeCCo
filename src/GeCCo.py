@@ -12,8 +12,6 @@ Example:
 
 """Import Statements"""
 import os
-import warnings
-warnings.simplefilter(action='ignore', category=FutureWarning)
 import pandas as pd
 from Bio import SeqIO
 from scipy import stats
@@ -109,7 +107,7 @@ class TfData:
 
         # Convert dictionary to dataframe
         df = pd.DataFrame(data = self.tf_data)
-        df = df.pivot("species", "factors", "counts")
+        df = df.pivot(index="species", columns="factors", values="counts")
         return df.rename(columns=tf_name), "Transcription Factor Domains"
 
     
@@ -180,7 +178,7 @@ class CazyData:
         
         # Convert dictionary to dataframe
         df = pd.DataFrame(data = self.cazy_data)
-        df = df.pivot("species", "cazymes", "counts")
+        df = df.pivot(index="species", columns="cazymes", values="counts")
         return df.rename(columns=self.cazy_names), "CAZyme Families"
 
 
@@ -248,7 +246,7 @@ class KeggData:
 
         # Convert dictionary to dataframe
         df = pd.DataFrame(data = self.kegg_data)
-        return df.pivot("species", "KEGG", "counts"), "KEGG Classes"
+        return df.pivot(index="species", columns="KEGG", values="counts"), "KEGG Classes"
 
 
 class KogData:
@@ -338,7 +336,7 @@ class KogData:
 
         # Convert dictionary to dataframe
         df = pd.DataFrame(data = self.kog_data)
-        df = df.pivot("species", "KOG", "counts")
+        df = df.pivot(index="species", columns="KOG", values="counts")
         df = df.rename(columns={"RNA processing and modification  ": "RNA processing and modification "})
         return df.reindex(columns=self.column_order), "KOG Classes"
 
@@ -353,7 +351,7 @@ class PepData:
     def __init__(self, input_folder: str, mode: int):
         self.input = input_folder
         self.pep_data = {"species": [], "peptidase": [], "counts": []}
-        self.mode = mode
+        self.mode = int(mode)
 
     def pep_reader(self) -> pd.DataFrame:
         """
@@ -405,7 +403,7 @@ class PepData:
 
         # Convert dictionary to dataframe
         df = pd.DataFrame(data = self.pep_data)
-        return df.pivot("species", "peptidase", "counts"), "Peptidase Clan"
+        return df.pivot(index="species", columns="peptidase", values="counts"), "Peptidase Clan"
 
 
 class CustomData:
@@ -481,7 +479,7 @@ class CustomData:
 
         # Convert dictionary to dataframe
         df = pd.DataFrame(data = self.custom_data)
-        return df.pivot("species", "var_fac", "counts"), header
+        return df.pivot(index="species", columns="var_fac", values="counts"), header
 
 
 class HeatGenerator:
