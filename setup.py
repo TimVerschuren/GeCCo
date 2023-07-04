@@ -25,7 +25,7 @@ setuptools.setup(
     python_requires=">=3.10",
     entry_points={
         "console_scripts": [
-            "gecco = src.cli:main",
+            "gecco = GeCCo_src.cli:main",
         ]
     }
 )
